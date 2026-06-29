@@ -1,4 +1,6 @@
 import EditEvidence from "../dialogs/EditEvidence";
+import EditPerson from "../dialogs/EditPerson";
+import ViewPerson from "../dialogs/ViewDialogs/ViewPerson";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 import {
@@ -15,6 +17,7 @@ function CaseDetails() {
   return (
     <Card>
       <CardContent>
+        
         <Table>
           <TableCaption>
             List of all the Persons in Case Number: {"213"}
@@ -34,18 +37,21 @@ function CaseDetails() {
               <TableCell>1</TableCell>
               <TableCell>Gagan Suman</TableCell>
               <TableCell>Himself</TableCell>
-              
+
               <TableCell>Punjab</TableCell>
               <TableCell>Active</TableCell>
-              <TableCell className="flex flex-row items-end justify-end">
-                <Button variant={'outline'}>Edit</Button>
-                <Button variant={'destructive'}>Delete</Button>
+              <TableCell className="flex flex-row items-end space-x-1 justify-end">
+                <ViewPerson/>
+                <EditPerson/>
+                <Button variant={"destructive"}>Delete</Button>
               </TableCell>
             </TableRow>
           </TableBody>
         </Table>
         <Table>
-          <TableCaption>All the evidences belonging to Case number: { '123'}</TableCaption>
+          <TableCaption>
+            All the evidences belonging to Case number: {"123"}
+          </TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead>Evidence Id</TableHead>
@@ -61,9 +67,10 @@ function CaseDetails() {
               <TableCell>Social</TableCell>
               <TableCell>Instagram</TableCell>
               <TableCell>Good</TableCell>
-              <TableCell className="flex items-end justify-end flex-row">
-               <EditEvidence/>
-                <Button variant={'destructive'}>Delete</Button>
+              <TableCell className="flex items-end justify-end flex-row space-x-1">
+                <Button>View</Button>
+                <EditEvidence />
+                <Button variant={"destructive"}>Delete</Button>
               </TableCell>
             </TableRow>
           </TableBody>

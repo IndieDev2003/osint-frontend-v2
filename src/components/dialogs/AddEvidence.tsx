@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from "../ui/select";
 
-function EditEvidence() {
+function AddEvidence() {
   const [fileName, setFileName] = useState<string>("");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,14 +33,31 @@ function EditEvidence() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit</Button>
+        {/* Styled button to represent creating a new item */}
+        <Button className="flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M5 12h14" />
+            <path d="M12 5v14" />
+          </svg>
+          Add Evidence
+        </Button>
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-[500px] w-full max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Edit Evidence</DialogTitle>
+          <DialogTitle>Add New Evidence</DialogTitle>
           <DialogDescription>
-            Modify the details of the evidence for Case number: 123
+            Log a new piece of evidence for Case number: 123
           </DialogDescription>
         </DialogHeader>
 
@@ -48,15 +65,18 @@ function EditEvidence() {
         <div className="grid gap-5 py-4">
           {/* 1. Evidence Name */}
           <div className="grid gap-2">
-            <Label htmlFor="evidence-name">Evidence Name</Label>
-            <Input id="evidence-name" placeholder="e.g., Threat Actor Tweet" />
+            <Label htmlFor="new-evidence-name">Evidence Name</Label>
+            <Input
+              id="new-evidence-name"
+              placeholder="e.g., Threat Actor Tweet"
+            />
           </div>
 
           {/* 2. Evidence Type */}
           <div className="grid gap-2">
-            <Label htmlFor="evidence-type">Evidence Type</Label>
-            <Select defaultValue="google-dorks">
-              <SelectTrigger id="evidence-type" className="w-full">
+            <Label htmlFor="new-evidence-type">Evidence Type</Label>
+            <Select>
+              <SelectTrigger id="new-evidence-type" className="w-full">
                 <SelectValue placeholder="Select Evidence Type" />
               </SelectTrigger>
               <SelectContent>
@@ -68,14 +88,14 @@ function EditEvidence() {
             </Select>
           </div>
 
-          {/* 3. Associated Person (NEW FIELD) */}
+          {/* 3. Associated Person */}
           <div className="grid gap-2">
-            <Label htmlFor="associated-person">
+            <Label htmlFor="new-associated-person">
               Associated Person / Target
             </Label>
-            <Select defaultValue="unassigned">
-              <SelectTrigger id="associated-person" className="w-full">
-                <SelectValue placeholder="Link to a person..." />
+            <Select>
+              <SelectTrigger id="new-associated-person" className="w-full">
+                <SelectValue placeholder="Link to a person (Optional)" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="unassigned">
@@ -94,9 +114,9 @@ function EditEvidence() {
 
           {/* 4. Source URL */}
           <div className="grid gap-2">
-            <Label htmlFor="evidence-url">Source URL / Link</Label>
+            <Label htmlFor="new-evidence-url">Source URL / Link</Label>
             <Input
-              id="evidence-url"
+              id="new-evidence-url"
               type="url"
               placeholder="https://example.com/evidence-source"
             />
@@ -104,18 +124,18 @@ function EditEvidence() {
 
           {/* 5. File / Image Upload */}
           <div className="grid gap-2">
-            <Label htmlFor="evidence-file">
+            <Label htmlFor="new-evidence-file">
               Upload File / Image Screenshot
             </Label>
             <div className="flex items-center gap-3">
               <label
-                htmlFor="evidence-file"
+                htmlFor="new-evidence-file"
                 className="flex h-10 px-4 py-2 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-md text-sm font-medium cursor-pointer border border-input items-center justify-center transition-colors"
               >
                 Choose File
               </label>
               <input
-                id="evidence-file"
+                id="new-evidence-file"
                 type="file"
                 accept="image/*,.pdf,.txt,.json"
                 className="hidden"
@@ -129,9 +149,9 @@ function EditEvidence() {
 
           {/* 6. Notes / Description */}
           <div className="grid gap-2">
-            <Label htmlFor="evidence-notes">Notes & Analysis</Label>
+            <Label htmlFor="new-evidence-notes">Notes & Analysis</Label>
             <Textarea
-              id="evidence-notes"
+              id="new-evidence-notes"
               placeholder="Add context, findings, or details about this evidence..."
               className="resize-none min-h-[80px]"
             />
@@ -143,11 +163,11 @@ function EditEvidence() {
           <Button variant="ghost" type="button">
             <DialogClose>Cancel</DialogClose>
           </Button>
-          <Button type="submit">Save Changes</Button>
+          <Button type="submit">Create Evidence</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
   );
 }
 
-export default EditEvidence;
+export default AddEvidence;

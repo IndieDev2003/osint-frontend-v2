@@ -1,4 +1,6 @@
 import CaseDetails from "@/components/Case/CaseDetails";
+import AddEvidence from "@/components/dialogs/AddEvidence";
+import AddPerson from "@/components/dialogs/AddPerson";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,7 +13,7 @@ import {
 
 function Case() {
   return (
-    <Card>
+    <Card className="">
       <CardHeader>
         <CardTitle>Case Details - CASE2324</CardTitle>
         <CardDescription>
@@ -22,17 +24,15 @@ function Case() {
           <Button>Back</Button>
           <Button className="bg-blue-600">Home</Button>
         </CardAction>
-          </CardHeader>
-          <CardContent className="space-y-2">
-              <div>
-                  <Button>Add Evidence</Button>
-                  <Button>Add Contact</Button>
-                  <Button>Add Email</Button>
-                  <Button>Add Socials</Button>
-                  <Button>Add Relatives</Button>
-              </div>
-              <CaseDetails/>
-          </CardContent>
+      </CardHeader>
+      <CardContent className="space-y-2">
+        <div className="flex flex-row space-x-1">
+          <AddPerson/>
+
+          <AddEvidence/>
+        </div>
+        <CaseDetails />
+      </CardContent>
     </Card>
   );
 }

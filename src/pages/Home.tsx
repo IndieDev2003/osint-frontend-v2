@@ -11,7 +11,7 @@ import {
 
 function Home() {
   return (
-    <Card className="min-w-full w-full">
+    <Card className="">
       <CardHeader className="w-full">
         <CardTitle>OSINT Project</CardTitle>
         <CardDescription>
