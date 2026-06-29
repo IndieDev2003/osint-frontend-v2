@@ -1,19 +1,31 @@
 "use client";
 
-import { Card, CardContent} from "@/components/ui/card";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
-   SelectContent,
-   SelectItem,
+  SelectContent,
+  SelectItem,
   SelectTrigger,
-   SelectValue,
+  SelectValue,
 } from "@/components/ui/select";
-// import { div } from "../ui/field";
 
-function AddNewForm() {
+function AddNewCase() {
+  // State to handle programmatic modal closing on submit
+  const [open, setOpen] = useState(false);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -27,14 +39,30 @@ function AddNewForm() {
     };
 
     console.log("Submitted Data:", payload);
-    // Process payload here
+    // Process payload here (e.g., dispatching API calls or state mutations)
+
+    // Close the dialog modal programmatically
+    setOpen(false);
   };
 
   return (
-    <Card className="max-w-xl relative w-full">
-      
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-5">
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button>Add New Case</Button>
+      </DialogTrigger>
+
+      <DialogContent className="sm:max-w-xl">
+        <DialogHeader>
+          <DialogTitle className="text-xl font-bold tracking-tight">
+            Create New Case File
+          </DialogTitle>
+          <DialogDescription>
+            Initialize a secure intelligence envelope. Ensure target entities
+            and tracking parameters match file requirements.
+          </DialogDescription>
+        </DialogHeader>
+
+        <form onSubmit={handleSubmit} className="space-y-5 py-2">
           {/* Case ID */}
           <div className="space-y-2">
             <Label htmlFor="caseId">Case ID / Reference No.</Label>
@@ -60,7 +88,6 @@ function AddNewForm() {
           {/* Case Type Dropdown */}
           <div className="space-y-2">
             <Label htmlFor="caseType">Investigation Type</Label>
-            {/* Note: shadcn Select requires a root 'name' attribute to append properly to native FormData */}
             <Select
               name="caseType"
               defaultValue="Social Engineering / Phishing Trace"
@@ -104,17 +131,19 @@ function AddNewForm() {
             </Select>
           </div>
 
-          {/* Actions */}
-          <div className="flex justify-end gap-3 pt-2">
-            <Button type="button" variant="outline">
-              Cancel
-            </Button>
+          {/* Dialog Actions Footer */}
+          <DialogFooter className="pt-4 border-t gap-2 sm:gap-0">
+            <DialogClose asChild>
+              <Button type="button" variant="outline">
+                Cancel
+              </Button>
+            </DialogClose>
             <Button type="submit">Add Case</Button>
-          </div>
+          </DialogFooter>
         </form>
-      </CardContent>
-    </Card>
+      </DialogContent>
+    </Dialog>
   );
 }
 
-export default AddNewForm;
+export default AddNewCase;

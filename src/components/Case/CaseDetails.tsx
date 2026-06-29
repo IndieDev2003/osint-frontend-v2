@@ -1,5 +1,6 @@
 import EditEvidence from "../dialogs/EditEvidence";
 import EditPerson from "../dialogs/EditPerson";
+import ViewEvidence from "../dialogs/ViewDialogs/ViewEvidence";
 import ViewPerson from "../dialogs/ViewDialogs/ViewPerson";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
@@ -68,7 +69,7 @@ function CaseDetails() {
               <TableCell>Instagram</TableCell>
               <TableCell>Good</TableCell>
               <TableCell className="flex items-end justify-end flex-row space-x-1">
-                <Button>View</Button>
+                <ViewEvidence/>
                 <EditEvidence />
                 <Button variant={"destructive"}>Delete</Button>
               </TableCell>
