@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
@@ -5,16 +6,23 @@ function Header() {
   return (
     <Card className="py-2 ">
       <CardContent className="flex h-fit justify-between px-2 py-0">
-        <Button className="" variant={"outline"}>
-          OSINT Database
-        </Button>
+        <NavLink to={"/"} className="">
+          <Button variant={"outline"}>OSINT Database</Button>
+        </NavLink>
 
         <div className="hidden md:block">
-          <Button>Home</Button>
-          <Button>Evidences</Button>
-          <Button>Persons</Button>
-          <Button>Cases</Button>
-          <Button>Add New Case</Button>
+          <NavLink to={"/"}>
+            <Button>Home</Button>
+          </NavLink>
+          <NavLink to={"/evidences"}>
+            <Button>Evidences</Button>
+          </NavLink>
+          <NavLink to={"/persons"}>
+            <Button>Persons</Button>
+          </NavLink>
+          <NavLink to={"/cases"}>
+            <Button>Cases</Button>
+          </NavLink>
         </div>
       </CardContent>
     </Card>

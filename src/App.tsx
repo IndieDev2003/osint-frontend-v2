@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Case from './pages/Case'
 
 import Home from './pages/Home'
+import Cases from './pages/Cases'
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/case' element={<Case />} />
+        <Route path='/cases/:id' element={<Case />} />
+        <Route path='/cases' element={<Cases />} />
         
       </Routes>
       <Footer/>
