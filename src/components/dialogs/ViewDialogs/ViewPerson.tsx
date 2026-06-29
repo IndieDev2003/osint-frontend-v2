@@ -18,7 +18,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import React from "react";
+
 import EditEvidence from "../EditEvidence";
 import { Card, CardContent } from "@/components/ui/card";
 
