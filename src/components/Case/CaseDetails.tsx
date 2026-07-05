@@ -1,3 +1,4 @@
+import type { Evidence, Person } from "@/lib/cases";
 import EditEvidence from "../dialogs/EditEvidence";
 import EditPerson from "../dialogs/EditPerson";
 import ViewEvidence from "../dialogs/ViewDialogs/ViewEvidence";
@@ -14,11 +15,10 @@ import {
   TableRow,
 } from "../ui/table";
 
-function CaseDetails() {
+function CaseDetails({Persons ,Evidences}:{Persons :Person[],Evidences:Evidence[]}) {
   return (
     <Card>
       <CardContent>
-        
         <Table>
           <TableCaption>
             List of all the Persons in Case Number: {"213"}
@@ -34,19 +34,21 @@ function CaseDetails() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow>
-              <TableCell>1</TableCell>
-              <TableCell>Gagan Suman</TableCell>
-              <TableCell>Himself</TableCell>
+            {Persons.map((person) => (
+              <TableRow>
+                <TableCell>{person.id }</TableCell>
+                <TableCell>{person.name}</TableCell>
+                <TableCell>Himself</TableCell>
 
-              <TableCell>Punjab</TableCell>
-              <TableCell>Active</TableCell>
-              <TableCell className="flex flex-row items-end space-x-1 justify-end">
-                <ViewPerson/>
-                <EditPerson/>
-                <Button variant={"destructive"}>Delete</Button>
-              </TableCell>
-            </TableRow>
+                <TableCell>{person.email}</TableCell>
+                <TableCell>{ person.email}</TableCell>
+                <TableCell className="flex flex-row items-end space-x-1 justify-end">
+                  <ViewPerson />
+                  <EditPerson />
+                  <Button variant={"destructive"}>Delete</Button>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
         <Table>
@@ -69,7 +71,7 @@ function CaseDetails() {
               <TableCell>Instagram</TableCell>
               <TableCell>Good</TableCell>
               <TableCell className="flex items-end justify-end flex-row space-x-1">
-                <ViewEvidence/>
+                <ViewEvidence />
                 <EditEvidence />
                 <Button variant={"destructive"}>Delete</Button>
               </TableCell>

@@ -1,4 +1,3 @@
-"use client";
 
 import { cases } from "@/lib/cases";
 import {
@@ -50,7 +49,7 @@ function CasesTable() {
             </TableCaption>
             <TableHeader className="bg-muted/50 border-b select-none">
               <TableRow>
-                <TableHead className="w-[120px] text-xs font-semibold uppercase tracking-wider">
+                <TableHead >
                   Case ID
                 </TableHead>
                 <TableHead className="text-xs font-semibold uppercase tracking-wider">
@@ -81,14 +80,14 @@ function CasesTable() {
                       {item.id || "N/A"}
                     </TableCell>
                     <TableCell className="font-semibold text-sm text-foreground">
-                      {item.name || "Unknown Identity"}
+                      {item.initialLead || "Unknown Identity"}
                     </TableCell>
                     <TableCell className="text-sm text-muted-foreground max-w-[220px] truncate">
                       {item.type || "Unclassified Type"}
                     </TableCell>
                     <TableCell>
                       <span className="font-mono text-xs bg-muted/60 px-2 py-0.5 rounded text-muted-foreground border shadow-sm">
-                        {item.evidence || 0} artifacts
+                        {item.title || 0} artifacts
                       </span>
                     </TableCell>
                     <TableCell>
