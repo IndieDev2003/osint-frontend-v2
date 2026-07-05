@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22.22
-          cache: 'bun' # Changes to 'yarn' or 'pnpm' if you use them
+          cache: 'npm' # Changes to 'yarn' or 'pnpm' if you use them
 
       - name: Install dependencies
         run: npm ci
