@@ -1,4 +1,4 @@
-import CaseDetails from "@/components/Case/CaseDetails";
+// import CaseDetails from "@/components/Case/CaseDetails";
 import AddEvidence from "@/components/dialogs/AddEvidence";
 import AddPerson from "@/components/dialogs/AddPerson";
 import { Button } from "@/components/ui/button";
@@ -31,7 +31,7 @@ function Case() {
 
           <AddEvidence/>
         </div>
-        <CaseDetails />
+        {/* <CaseDetails /> */}
       </CardContent>
     </Card>
   );

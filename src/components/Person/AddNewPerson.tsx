@@ -6,39 +6,37 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogFooter,
   DialogDescription,
 } from "../ui/dialog";
-import { Field, FieldGroup } from "../ui/field";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 
 function AddNewPerson() {
   const [open, setOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    personName: "",
-    connectedCase: "",
-    connectedRelatives: 0,
-    connectedEvidences: 0,
-  });
+  // const [formData, setFormData] = useState({
+  //   personName: "",
+  //   connectedCase: "",
+  //   connectedRelatives: 0,
+  //   connectedEvidences: 0,
+  // });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "number" ? parseInt(value) || 0 : value,
-    }));
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value, type } = e.target;
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [name]: type === "number" ? parseInt(value) || 0 : value,
+  //   }));
+  // };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle your form submission logic here (e.g., API call)
-    console.log("Submitted Person Data:", formData);
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // Handle your form submission logic here (e.g., API call)
+  //   console.log("Submitted Person Data:", formData);
 
-    // Reset form and close dialog
-    setOpen(false);
-  };
+  //   // Reset form and close dialog
+  //   setOpen(false);
+  // };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

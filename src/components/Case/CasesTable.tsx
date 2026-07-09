@@ -16,7 +16,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { Trash } from "lucide-react";
 
 function CasesTable() {

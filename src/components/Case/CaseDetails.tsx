@@ -15,7 +15,7 @@ import {
   TableRow,
 } from "../ui/table";
 
-function CaseDetails({Persons ,Evidences}:{Persons :Person[],Evidences:Evidence[]}) {
+function CaseDetails({Persons }:{Persons :Person[],Evidences:Evidence[]}) {
   return (
     <Card>
       <CardContent>
