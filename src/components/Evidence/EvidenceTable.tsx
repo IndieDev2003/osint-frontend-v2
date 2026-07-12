@@ -41,7 +41,7 @@ function EvidenceTable() {
                 <Badge variant={"outline"}>URl</Badge>
               </TableCell>
               <TableCell className="space-x-1 flex justify-end">
-                <Button variant={"outline"}>View</Button>
+                <Button variant={"outline"} className="">View</Button>
                 <Button variant={"destructive"}> <Trash/>Delete</Button>
               </TableCell>
             </TableRow>

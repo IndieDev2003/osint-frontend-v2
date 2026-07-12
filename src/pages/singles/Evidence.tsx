@@ -27,7 +27,6 @@ import {
   Fingerprint,
   Trash,
 } from "lucide-react";
-import React from "react";
 
 // Dummy log tracking the chain of custody for this specific piece of evidence
 const dummyCustodyLog = [
